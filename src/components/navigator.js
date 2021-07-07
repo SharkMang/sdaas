@@ -28,7 +28,7 @@ class Navigator {
             this.ul.lastChild.classList.add('selected');
         }
 
-        
+
         if(index > 1) {
             this.container.appendChild(this.ul);
         } else {

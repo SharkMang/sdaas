@@ -22,10 +22,60 @@ class App {
                 isChecked: false,
                 id: 11
             },
+            {
+                todoName: 'third',
+                isChecked: false,
+                id: 12
+            },
+            {
+                todoName: 'fourth',
+                isChecked: false,
+                id: 13
+            },
+            {
+                todoName: 'fifth',
+                isChecked: false,
+                id: 14
+            },
+            {
+                todoName: 'sixth',
+                isChecked: false,
+                id: 15
+            },
+            {
+                todoName: 'seventh',
+                isChecked: false,
+                id: 16
+            },
+            {
+                todoName: 'eighth',
+                isChecked: false,
+                id: 17
+            },
+            {
+                todoName: 'ninth',
+                isChecked: false,
+                id: 18
+            },
+            {
+                todoName: 'tenth',
+                isChecked: false,
+                id: 19
+            },
+            {
+                todoName: 'eleventh',
+                isChecked: false,
+                id: 20
+            },
+            {
+                todoName: 'twelfth',
+                isChecked: false,
+                id: 21
+            },
         ];
 
-        this.filterValue = 5;
-        this.navListCounter = (Math.trunc(this.todoList.length / this.filterValue) + 1);
+        this.filterValue = 3;
+        this.navListCounter = (Math.trunc(this.todoList.length / this.filterValue));
         this.prevChoosedNav = this.navListCounter;
 
         this.prevChoosedFilter = 'all';
@@ -161,14 +211,29 @@ class App {
         this.initHeader.changeCheckbox(this.todoList);
         this.initFooter.changeCount(this.todoList);
 
-        if(this.prevChoosedNav !== this.navListCounter){
+
+        if(this.prevChoosedNav === this.navListCounter) {
+            if(this.todoList.length < (this.navListCounter * this.filterValue) && this.navListCounter !== 1 && this.todoList.length % this.filterValue === 0) {
+                this.navListCounter--;
+                this.prevChoosedNav = this.navListCounter;
+                this.initNavSection.render(this.navListCounter);
+                this.moveToTheNavPage(this.navListCounter, this.todoList);
+            }
+            this.moveToTheNavPage(this.prevChoosedNav, this.todoList);
+        } else {
+            if(this.todoList.length < (this.navListCounter * this.filterValue) && this.navListCounter !== 1 && this.todoList.length % this.filterValue === 0) {
+                this.navListCounter--;
+                this.initNavSection.render(this.navListCounter);
+                this.initNavSection.removeClassSelected(this.navListCounter);
+            }
+            
+            let elem = document.getElementById(this.prevChoosedNav);
+            if(elem) {
+                elem.classList.add('selected');
+            }
+
             this.moveToTheNavPage(this.prevChoosedNav, this.todoList);
         }
-
-        if(this.todoList.length < (this.navListCounter * this.filterValue) && this.navListCounter !== 1 && this.todoList.length % this.filterValue === 0) {
-            this.navListCounter--;
-            this.changeListOfNavPages(this.todoList);
-        } 
     }
 
 
