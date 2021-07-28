@@ -2,7 +2,7 @@
   "name": "work1.1",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -26,6 +26,7 @@
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
     "history": "^5.0.0",
+    "html-webpack-plugin": "^5.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",

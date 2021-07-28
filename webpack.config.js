@@ -1,9 +1,10 @@
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const { HotModuleReplacementPlugin } = require('webpack');
+//const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './src/app.js',
+  entry: './src/App.js',
   module: {
     rules: [
       { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
